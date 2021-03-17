@@ -53,7 +53,7 @@
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_more_vert_24" />
+        app:srcCompat="@drawable/ic_baseline_more_vert_green_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
@@ -87,6 +87,7 @@
         android:id="@+id/imageButtonLike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
         android:background="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@id/barrierAfterContent"
         app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
@@ -95,6 +96,7 @@
         android:id="@+id/textViewNumbersOfLikes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/pairs_spacing"
         app:layout_constraintStart_toEndOf="@id/imageButtonLike"
         app:layout_constraintTop_toBottomOf="@id/barrierAfterContent"
@@ -104,6 +106,7 @@
         android:id="@+id/imageButtonShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/common_spacing"
         android:background="@android:color/transparent"
         app:layout_constraintStart_toEndOf="@id/textViewNumbersOfLikes"
@@ -114,6 +117,7 @@
         android:id="@+id/textViewNumbersOfShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/pairs_spacing"
         app:layout_constraintStart_toEndOf="@id/imageButtonShare"
         app:layout_constraintTop_toBottomOf="@id/barrierAfterContent"
@@ -123,6 +127,7 @@
         android:id="@+id/imageButtonView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/pairs_spacing"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@id/textViewNumbersOfView"
@@ -133,6 +138,7 @@
         android:id="@+id/textViewNumbersOfView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/common_spacing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrierAfterContent"
