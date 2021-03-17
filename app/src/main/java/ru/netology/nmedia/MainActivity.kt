@@ -50,21 +50,21 @@ class MainActivity : AppCompatActivity() {
                 if (post.likedByMe) post.likesSum++ else post.likesSum--
                 likesNumber.text = displayNumbers(post.likesSum)
 
-                Log.d("Tag", "done_Like")
+//                Log.d("Tag", "done_Like")
             }
 
             share?.setOnClickListener {
                 shareNumber.text = displayNumbers(post.sharedSum++)
-                Log.d("Tag", "done_Repost")
+//                Log.d("Tag", "done_Repost")
             }
 
-            root?.setOnClickListener {
-                Log.d("Tag", "done_root")
-            }
-
-            imageView?.setOnClickListener {
-               Log.d("Tag", "Avatar")
-            }
+//            root?.setOnClickListener {
+//                Log.d("Tag", "done_root")
+//            }
+//
+//            imageView?.setOnClickListener {
+//               Log.d("Tag", "Avatar")
+//            }
 
         }
 
