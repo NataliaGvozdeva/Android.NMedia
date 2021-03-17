@@ -84,7 +84,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButtonLike"
+        android:id="@+id/like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
@@ -93,49 +93,49 @@
         app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
 
     <TextView
-        android:id="@+id/textViewNumbersOfLikes"
+        android:id="@+id/likesNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/pairs_spacing"
-        app:layout_constraintStart_toEndOf="@id/imageButtonLike"
+        app:layout_constraintStart_toEndOf="@id/like"
         app:layout_constraintTop_toBottomOf="@id/barrierAfterContent"
         tools:text="@sample/posts.json/bottomInfo/likes" />
 
     <ImageButton
-        android:id="@+id/imageButtonShare"
+        android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/common_spacing"
         android:background="@android:color/transparent"
-        app:layout_constraintStart_toEndOf="@id/textViewNumbersOfLikes"
+        app:layout_constraintStart_toEndOf="@id/likesNumber"
         app:layout_constraintTop_toBottomOf="@id/barrierAfterContent"
         app:srcCompat="@drawable/ic_baseline_share_24" />
 
     <TextView
-        android:id="@+id/textViewNumbersOfShare"
+        android:id="@+id/shareNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginStart="@dimen/pairs_spacing"
-        app:layout_constraintStart_toEndOf="@id/imageButtonShare"
+        app:layout_constraintStart_toEndOf="@id/share"
         app:layout_constraintTop_toBottomOf="@id/barrierAfterContent"
         tools:text="@sample/posts.json/bottomInfo/shared" />
 
     <ImageButton
-        android:id="@+id/imageButtonView"
+        android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
         android:layout_marginEnd="@dimen/pairs_spacing"
         android:background="@android:color/transparent"
-        app:layout_constraintEnd_toStartOf="@id/textViewNumbersOfView"
+        app:layout_constraintEnd_toStartOf="@id/viewNumber"
         app:layout_constraintTop_toBottomOf="@id/barrierAfterContent"
         app:srcCompat="@drawable/ic_baseline_visibility_24" />
 
     <TextView
-        android:id="@+id/textViewNumbersOfView"
+        android:id="@+id/viewNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_spacing"
