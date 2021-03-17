@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             published = "21 мая в 18:36",
             likedByMe = false,
             likesSum = 500_999_999,
-            sharedSum = 500_999_999,
+            sharedSum = 1_999_999,
             viewSum = 500_999_999
         )
 
@@ -27,9 +29,9 @@ class MainActivity : AppCompatActivity() {
             textAuthor.text = post.author
             textPublished.text = post.published
             content.text = post.content
-            textViewNumbersOfLikes.text = preparedTextForIcons(post.likesSum)
-            textViewNumbersOfShare.text = preparedTextForIcons(post.sharedSum)
-            textViewNumbersOfView.text = preparedTextForIcons(post.viewSum + 1)
+            textViewNumbersOfLikes.text = displayNumbers(post.likesSum)
+            textViewNumbersOfShare.text = displayNumbers(post.sharedSum)
+            textViewNumbersOfView.text = displayNumbers(post.viewSum + 1)
             imageButtonView.setImageResource(R.drawable.ic_baseline_visibility_viewed_24)
 
             imageButtonLike?.setOnClickListener {
@@ -38,47 +40,30 @@ class MainActivity : AppCompatActivity() {
                     if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_baseline_favorite_border_24
                 )
                 if (post.likedByMe) post.likesSum++ else post.likesSum--
-                textViewNumbersOfLikes.text = preparedTextForIcons(post.likesSum)
+                textViewNumbersOfLikes.text = displayNumbers(post.likesSum)
             }
 
             imageButtonShare?.setOnClickListener {
                 imageButtonShare.setImageResource(R.drawable.ic_baseline_shared_24)
                 post.sharedSum++
-                textViewNumbersOfShare.text = preparedTextForIcons(post.sharedSum)
+                textViewNumbersOfShare.text = displayNumbers(post.sharedSum)
             }
 
         }
 
     }
 
-
-    fun preparedTextForIcons(currentIconSum: Long) = when (currentIconSum) {
-        in 1 until 1000 -> currentIconSum.toString()
-        in 1_000 until 10_000 -> modificationThousands(currentIconSum,"K")
-        in 10_000 until 1_000_000 -> (currentIconSum/1000).toString()+"K"
-        in 1_000_000 until 10_000_000 -> modificationThousands(currentIconSum/1000,"M")
-        in 10_000_000 until 1000_000_000 -> (currentIconSum/1_000_000).toString()+"M"
-        else -> "a lot"
-    }
-
-    fun modificationThousands(currentSharedSum: Long, letter: String): String {
-
-        val value = (currentSharedSum/1000)
-
-        return when (currentSharedSum) {
-            in (value * 1000) until (value * 1000) + 100 -> "$value$letter"
-            in (value * 1000) + 100 until (value * 1000) + 200 -> "$value.1$letter"
-            in (value * 1000) + 200 until (value * 1000) + 300 -> "$value.2$letter"
-            in (value * 1000) + 300 until (value * 1000) + 400 -> "$value.3$letter"
-            in (value * 1000) + 400 until (value * 1000) + 500 -> "$value.4$letter"
-            in (value * 1000) + 500 until (value * 1000) + 600 -> "$value.5$letter"
-            in (value * 1000) + 600 until (value * 1000) + 700 -> "$value.6$letter"
-            in (value * 1000) + 700 until (value * 1000) + 800 -> "$value.7$letter"
-            in (value * 1000) + 800 until (value * 1000) + 900 -> "$value.8$letter"
-            in (value * 1000) + 900 until (value * 1000) + 1000 -> "$value.9$letter"
-            else ->  "error"
+    fun displayNumbers(number: Long): String {
+        val decimalFormat = DecimalFormat("#.#")
+        decimalFormat.roundingMode = RoundingMode.DOWN
+        return when (number) {
+            in 0..999 -> "$number"
+            in 1000..9_999 -> "${decimalFormat.format(number.toFloat() / 1_000)}K"
+            in 10_000..999_999 -> "${number / 1_000}K"
+            in 1_000_000..9_999_999 -> "${decimalFormat.format(number.toFloat() / 1_000_000)}M"
+            in 10_000_000..999_999_999 -> "${number / 1_000_000}M"
+            else -> "a lot"
         }
-
     }
 
 }
