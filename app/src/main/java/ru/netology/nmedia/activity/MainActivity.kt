@@ -39,11 +39,10 @@ class MainActivity : AppCompatActivity() {
         })
         binding.like.setOnClickListener {
             viewModel.like()
-            viewModel.likesSum()
         }
 
         binding.share.setOnClickListener {
-            viewModel.sharedSum()
+            viewModel.share()
         }
     }
 
