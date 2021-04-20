@@ -1,3 +1,7 @@
+#### 2.3. Отображение списков RecyclerView
+1. Добавлена реализация отображения списков на базе RecyclerView и ListAdapter
+1. Применение OnLikeListener и OnShareListener
+
 #### 2.2. MVVM архитектура
 Предыдущая задача переделана с MVVM архитектурой.
 
