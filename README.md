@@ -1,3 +1,6 @@
+#### 2.4. CRUD: списки, добавление, удаление, изменение
+1. Добавлена реализацию CRUD
+
 #### 2.3. Отображение списков RecyclerView
 1. Добавлена реализация отображения списков на базе RecyclerView и ListAdapter
 1. Применение OnLikeListener и OnShareListener
