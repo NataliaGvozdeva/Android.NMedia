@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 setText(post.content)  //как только edited меняется, обновляем текст
             }
             with(binding.groupText) {
-                setText(post.content)
+                setText(post.content)  //как только edited меняется,
             }
         }
 

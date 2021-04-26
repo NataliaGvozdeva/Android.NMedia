@@ -27,7 +27,6 @@
         android:id="@+id/editedTextTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:color="@color/titlecolor"
         app:barrierDirection="top"
         app:constraint_referenced_ids="groupView,groupTitle,clear" />
 
