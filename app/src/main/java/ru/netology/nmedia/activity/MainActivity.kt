@@ -1,6 +1,7 @@
 package ru.netology.nmedia.activity
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = PostsAdapter(object : OnInteractionListener {
             override fun onEdit(post: Post) {
+                binding.groupEdit.visibility = View.VISIBLE
                 viewModel.edit(post)
             }
             override fun onLike(post: Post) {
@@ -55,10 +57,16 @@ class MainActivity : AppCompatActivity() {
                 requestFocus()         //как только edited меняется, обновляем текст
                 setText(post.content)  //как только edited меняется, обновляем текст
             }
+            with(binding.groupText) {
+                setText(post.content)
+            }
         }
 
         binding.save.setOnClickListener {
             with(binding.content) {
+//                binding.groupEdit.setOnClickListener{
+//                    binding.groupEdit.visibility = View.GONE
+//                }
                 if (text.isNullOrBlank()) {
                     Toast.makeText(
                         this@MainActivity,
@@ -74,9 +82,22 @@ class MainActivity : AppCompatActivity() {
                 setText("")
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
+                binding.groupEdit.visibility = View.GONE
             }
         }
 
+        binding.content.setOnClickListener{
+            binding.groupEdit.visibility = View.VISIBLE
+        }
+
+        binding.clear.setOnClickListener {
+            with(binding.content) {
+                setText("")
+                clearFocus()
+                AndroidUtils.hideKeyboard(this)
+                binding.groupEdit.visibility = View.GONE
+            }
+        }
 
     }
 }

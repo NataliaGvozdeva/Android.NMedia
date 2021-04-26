@@ -12,9 +12,83 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/toolsTop"
+        app:layout_constraintBottom_toTopOf="@id/editedTextTop"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/card_post"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="groupView,groupTitle,groupText,clear" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/editedTextTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:color="@color/titlecolor"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="groupView,groupTitle,clear" />
+
+    <ImageView
+        android:id="@+id/groupView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/pairs_spacing"
+        android:layout_marginStart="@dimen/pairs_spacing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/toolsTop"
+        app:layout_constraintEnd_toStartOf="@+id/groupTitle"
+        app:layout_constraintTop_toBottomOf="@+id/editedTextTop"
+        app:srcCompat="@drawable/ic_create_24"
+        />
+
+    <TextView
+        android:id="@+id/groupTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pairs_spacing"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginEnd="0dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/groupTitle"
+        android:textColor="@color/titlecolor"
+        app:layout_constraintBottom_toTopOf="@+id/groupText"
+        app:layout_constraintEnd_toStartOf="@+id/clear"
+        app:layout_constraintStart_toEndOf="@+id/groupView"
+        app:layout_constraintTop_toTopOf="@id/editedTextTop"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@sample/posts.json/groupInfo/title" />
+
+    <TextView
+        android:id="@+id/groupText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/toolsTop"
+        app:layout_constraintEnd_toStartOf="@+id/clear"
+        app:layout_constraintStart_toEndOf="@+id/groupView"
+        app:layout_constraintTop_toBottomOf="@+id/groupTitle"
+        tools:text="@sample/posts.json/groupInfo/editingMessage" />
+
+
+    <ImageButton
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/description_post_clear"
+        app:layout_constraintTop_toTopOf="@id/editedTextTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/content"
+        app:layout_constraintBottom_toBottomOf="@id/toolsTop"
+        app:srcCompat="@drawable/ic_clear_48"
+        />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/toolsTop"

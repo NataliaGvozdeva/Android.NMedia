@@ -15,5 +15,12 @@
       "shared": "9,15K",
       "views": "12,4K"
     }
+  ],
+
+  "groupInfo": [
+    {
+      "title": "Edit Message",
+      "editingMessage": "Editing message text..."
+    }
   ]
 }

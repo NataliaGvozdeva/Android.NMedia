@@ -14,7 +14,7 @@ private val empty = Post(            //data-объект для заполнен
     likedByMe = false,
     likesSum = 0,
     sharedSum = 0,
-    viewSum = 0
+    viewSum = 1
 )
 
 class PostViewModel : ViewModel() {
